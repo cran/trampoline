@@ -97,16 +97,22 @@ bench_res <- bench::mark(trampoline(factorial1(1000)),
                          trampoline(factorial2(10000)),
                          check = FALSE, iterations = 3)
 
-plot(as.numeric(bench_res$mem_alloc)[c(TRUE, FALSE)] ~ c(1000, 2000, 5000, 10000), type = "l", col = "red", 
-     xlab = "n", ylab = "Bytes Allocated")
-points(as.numeric(bench_res$mem_alloc)[c(FALSE, TRUE)] ~ c(1000, 2000, 5000, 10000), type = "l", col = "blue")
-legend("right", legend = c("No Tail Call", "Tail Call"), col = c("red", "blue"), lty = 1)
+bench_res
+
+if(all(!is.na(as.numeric(bench_res$mem_alloc)))) {
+  plot(as.numeric(bench_res$mem_alloc)[c(TRUE, FALSE)] ~ c(1000, 2000, 5000, 10000), type = "l", col = "red", 
+       xlab = "n", ylab = "Bytes Allocated")
+  points(as.numeric(bench_res$mem_alloc)[c(FALSE, TRUE)] ~ c(1000, 2000, 5000, 10000), type = "l", col = "blue")
+  legend("right", legend = c("No Tail Call", "Tail Call"), col = c("red", "blue"), lty = 1)
+}
 
 ## ----benchmark2---------------------------------------------------------------
-plot(as.numeric(bench_res$total_time)[c(TRUE, FALSE)] ~ c(1000, 2000, 5000, 10000), type = "l", col = "red", 
-     xlab = "n", ylab = "Total Time")
-points(as.numeric(bench_res$total_time)[c(FALSE, TRUE)] ~ c(1000, 2000, 5000, 10000), type = "l", col = "blue")
-legend("right", legend = c("No Tail Call", "Tail Call"), col = c("red", "blue"), lty = 1)
+if(all(!is.na(as.numeric(bench_res$total_time)))) {
+  plot(as.numeric(bench_res$total_time)[c(TRUE, FALSE)] ~ c(1000, 2000, 5000, 10000), type = "l", col = "red", 
+       xlab = "n", ylab = "Total Time")
+  points(as.numeric(bench_res$total_time)[c(FALSE, TRUE)] ~ c(1000, 2000, 5000, 10000), type = "l", col = "blue")
+  legend("right", legend = c("No Tail Call", "Tail Call"), col = c("red", "blue"), lty = 1)
+}
 
 ## ----even_odd-----------------------------------------------------------------
 even <- coro::generator(function(n) {

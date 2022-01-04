@@ -1,6 +1,6 @@
 Package: trampoline
 Title: Make Functions that Can Recurse Infinitely
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person("Russell", "Dinnage", , "r.dinnage@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0003-0846-2819"))
@@ -18,9 +18,9 @@ URL: https://github.com/rdinnager/trampoline,
         https://rdinnager.github.io/trampoline/
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2021-12-01 21:55:27 UTC; rdinn
+Packaged: 2022-01-04 20:07:00 UTC; rdinn
 Author: Russell Dinnage [aut, cre, cph]
     (<https://orcid.org/0000-0003-0846-2819>)
 Maintainer: Russell Dinnage <r.dinnage@gmail.com>
 Repository: CRAN
-Date/Publication: 2021-12-10 09:20:02 UTC
+Date/Publication: 2022-01-04 20:40:02 UTC

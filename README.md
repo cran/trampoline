@@ -7,8 +7,10 @@
 
 [![R-CMD-check](https://github.com/rdinnager/trampoline/workflows/R-CMD-check/badge.svg)](https://github.com/rdinnager/trampoline/actions)
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/trampoline)](https://CRAN.R-project.org/package=trampoline)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
 The goal of `trampoline` is to help make deeply recursive functions that
@@ -16,7 +18,13 @@ avoid overflowing the call stack.
 
 ## Installation
 
-You can install the development version from
+`trampoline` can be installed from CRAN with:
+
+``` r
+install.packages("trampoline")
+```
+
+You can also install the development version from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -456,7 +464,7 @@ trampoline(even(10000))
 
 ## does work
 trampoline(even(10000), odd = odd)
-#> Error in rlang::eval_bare(rlang::quo_get_expr(dots[[i]])): object 'odd' not found
+#> [1] TRUE
 ```
 
 An example where `trampoline` can really shine is in branching recursive
